@@ -1,0 +1,33 @@
+<app-header
+  [navbarBrandRouterLink]="['/rule']"
+  [fixed]="true"
+  [navbarBrandFull]="{src: 'assets/img/brand/logo.png', width: 110, height: 30, alt: 'RuleEngine Logo'}"
+  [navbarBrandMinimized]="{src: 'assets/img/brand/sygnet.png', width: 40, height: 40, alt: 'RuleEngine Logo'}"
+  [sidebarToggler]="'lg'"
+  [asideMenuToggler]="'lg'">
+  <div class="ml-auto">
+  </div>
+</app-header>
+<div class="app-body">
+  <app-sidebar [fixed]="true" [display]="'lg'" [minimized]="minimized" #sidebar (minimizedChange)="toggleMinimize($event)">
+    <app-sidebar-nav [navItems]="navItems" [perfectScrollbar] [disabled]="sidebar.minimized"></app-sidebar-nav>
+    <app-sidebar-minimizer></app-sidebar-minimizer>
+  </app-sidebar>
+  <!-- Main content -->
+  <main class="main">
+    <!-- Breadcrumb -->
+    <cui-breadcrumb>
+      <!-- Breadcrumb Menu-->
+    </cui-breadcrumb>
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+  <app-aside [fixed]="true" [display]="false">
+  </app-aside>
+</div>
+
+<app-footer>
+  <span><a href="">RuleEngine</a> &copy; 2020.</span>
+  <span class="ml-auto">Powered by <a href="http://www.codingtown.com/" target="blank">CodingTown</a></span>
+</app-footer>
