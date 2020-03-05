@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
+import { CommonModule} from '@angular/common';
 
-import { RuleComponent } from './rule.component';
 import { RuleRoutingModule } from './rule.routing.module';
+import { ListComponent } from './list/list.component';
+import { AddComponent } from './add/add.component';
+import { EditComponent } from './edit/edit.component';
+import { DetailComponent } from './detail/detail.component';
+
 
 @NgModule({
-  imports: [
-    RuleRoutingModule,
-  ],
-  declarations: [ RuleComponent ]
+  imports: [RuleRoutingModule, CommonModule],
+  declarations: [ListComponent, AddComponent, EditComponent, DetailComponent],
+  providers: []
 })
-export class DashboardModule { }
+
+export class RuleModule {}

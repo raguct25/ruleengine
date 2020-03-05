@@ -2,19 +2,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { FormsModule } from '@angular/forms';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 
+import { AppComponent } from './app.component';
+import { DefaultLayoutComponent } from './containers';
+import { AppRoutingModule } from './app.routing';
+
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
 };
-
-import { AppComponent } from './app.component';
-
-// Import containers
-import { DefaultLayoutComponent } from './containers';
 
 const APP_CONTAINERS = [
   DefaultLayoutComponent
@@ -28,10 +27,6 @@ import {
   AppSidebarModule,
 } from '@coreui/angular';
 
-// Import routing module
-import { AppRoutingModule } from './app.routing';
-
-
 @NgModule({
   imports: [
     BrowserModule,
@@ -42,7 +37,8 @@ import { AppRoutingModule } from './app.routing';
     AppFooterModule,
     AppHeaderModule,
     AppSidebarModule,
-    PerfectScrollbarModule
+    PerfectScrollbarModule,
+    FormsModule
   ],
   declarations: [
     AppComponent,
@@ -54,4 +50,5 @@ import { AppRoutingModule } from './app.routing';
   }],
   bootstrap: [ AppComponent ]
 })
+
 export class AppModule { }

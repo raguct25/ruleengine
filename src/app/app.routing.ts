@@ -19,7 +19,7 @@ export const routes: Routes = [
     children: [
       {
         path: 'rule',
-        loadChildren: () => import('./rule/rule.module').then(m => m.DashboardModule)
+        loadChildren: './rule/rule.module#RuleModule',
       }
     ]
   },
@@ -31,3 +31,11 @@ export const routes: Routes = [
   exports: [ RouterModule ]
 })
 export class AppRoutingModule {}
+
+
+// children: [
+//   {
+//     path: 'rule',
+//     loadChildren: () => import('./rule/rule.module').then(m => m.DashboardModule)
+//   }
+// ]
