@@ -6,6 +6,9 @@ import { FormsModule } from '@angular/forms';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
+
 
 import { AppComponent } from './app.component';
 import { DefaultLayoutComponent } from './containers';
@@ -38,7 +41,14 @@ import {
     AppHeaderModule,
     AppSidebarModule,
     PerfectScrollbarModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    ToastrModule.forRoot({
+      timeOut: 2000,
+      preventDuplicates: true,
+      closeButton: true,
+      progressBar: true,
+    }),
   ],
   declarations: [
     AppComponent,
