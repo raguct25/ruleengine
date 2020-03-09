@@ -25,8 +25,7 @@ export class ListComponent implements OnInit {
     this.router.navigate(['/rule/new']);
   }
 
-  gotoRuleEdit() {
-    const id = 10;
+  gotoRuleEdit(id: number) {
     this.router.navigate(['/rule/edit', id]);
   }
 }

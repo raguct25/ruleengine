@@ -28,4 +28,12 @@ export class RuleService {
   addRules(params: AddRuleParams): Observable<RuleListResponse> {
     return this.http.post<RuleListResponse>(`${this.url}/v1/rules`, params);
   }
+
+  fetchRuleById(id: number) {
+    return this.http.get<RuleListResponse>(`${this.url}/v1/rules/${id}`);
+  }
+
+  editRules(id: number, params: AddRuleParams): Observable<RuleListResponse> {
+    return this.http.put<RuleListResponse>(`${this.url}/v1/rules/${id}`, params);
+  }
 }

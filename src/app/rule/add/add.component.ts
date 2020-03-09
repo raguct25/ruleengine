@@ -12,7 +12,6 @@ import { RuleService } from '../rule.service';
 })
 export class AddComponent implements OnInit {
   isLoading = false;
-  // hasServerValidationError = false;
   errorMessages = [];
 
   rulesForm = this.formBuilder.group({
@@ -43,16 +42,12 @@ export class AddComponent implements OnInit {
 
   onSubmit() {
     this.isLoading = true;
-    // this.hasServerValidationError = false;
     const params = {
       rule: {
         name: this.rulesForm.value.name,
         description: this.rulesForm.value.description
       }
     };
-
-    console.log('params', params);
-
 
     this.ruleService.addRules(params).subscribe(
       () => {
@@ -64,7 +59,6 @@ export class AddComponent implements OnInit {
       error => {
         this.isLoading = false;
         if (error.hasValidationError) {
-          // this.hasServerValidationError = true;
           this.errorMessages = error.errorList;
         } else {
           this.toast.error(error.message);
