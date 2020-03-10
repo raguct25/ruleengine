@@ -34,6 +34,15 @@ export class RuleService {
   }
 
   editRules(id: number, params: AddRuleParams): Observable<RuleListResponse> {
-    return this.http.put<RuleListResponse>(`${this.url}/v1/rules/${id}`, params);
+    return this.http.put<RuleListResponse>(
+      `${this.url}/v1/rules/${id}`,
+      params
+    );
+  }
+
+  deleteRule(params: any) {
+    // console.log('test', this.http.delete(`${this.url}/v1/rules`, { params }));
+    
+    return this.http.delete(`${this.url}/v1/rules`, { params });
   }
 }

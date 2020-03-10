@@ -1,6 +1,7 @@
 // From packages
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 // From local files
 import { RuleService } from '../rule.service';
@@ -12,8 +13,13 @@ import { RuleService } from '../rule.service';
 })
 export class ListComponent implements OnInit {
   public rulesList = [];
+  errorMessages = [];
 
-  constructor(private router: Router, private ruleService: RuleService) {}
+  constructor(
+    private router: Router,
+    private ruleService: RuleService,
+    private toast: ToastrService
+  ) {}
 
   ngOnInit() {
     this.ruleService
@@ -27,5 +33,24 @@ export class ListComponent implements OnInit {
 
   gotoRuleEdit(id: number) {
     this.router.navigate(['/rule/edit', id]);
+  }
+
+  gotoRuleDelete(id: number) {
+    const params = {
+      ids: id.toString()
+    };
+    this.ruleService.deleteRule(params).subscribe(
+      () => {
+        this.toast.success('Rule deleted successfully !');
+        this.router.navigate(['/rule']);
+      },
+      error => {
+        if (error.hasValidationError) {
+          this.errorMessages = error.errorList;
+        } else {
+          this.toast.error(error.message);
+        }
+      }
+    );
   }
 }

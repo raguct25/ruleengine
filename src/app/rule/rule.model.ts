@@ -14,3 +14,4 @@ export class AddRule {
 export interface AddRuleParams {
   [key: string]: AddRule;
 }
+
